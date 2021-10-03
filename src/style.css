@@ -1,0 +1,197 @@
+/*
+need to make this actually be responsive still - but look OK on a big screen
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 500;
+  color: rgb(62, 66, 70);
+  /*text-transform: lowercase;*/
+}
+
+.container {
+  margin-top: 5%;
+}
+/*--------------------------------------------------------------- chosen city & today's conditions */
+
+div.conditions-today {
+  background-color: rgba(148, 203, 255, 0.13);
+  padding: 2em 0 2em 4em;
+  margin-bottom: 2em;
+  border-radius: 0 15em 15em 0;
+}
+
+.current-city {
+  margin-top: 23px;
+  font-size: 3em;
+}
+
+.day-time {
+  font-family: "Urbanist", sans-serif;
+  display: flex;
+  margin-top: -10px;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.current-day,
+.current-time {
+  margin-top: -15px;
+  font-size: 1.5em;
+}
+
+.current-time {
+  margin-left: 0.5em;
+}
+
+.current-weather-condition {
+  margin-bottom: 30px;
+  font-size: 1.3em;
+}
+
+.col.temp-current {
+  display: flex;
+}
+
+.temp-now {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 500;
+  font-size: 4em;
+  margin: 0.2em 0.2em 0 -0.5em;
+}
+
+.temp-celsius,
+.temp-divider,
+.temp-fahrenheit {
+  margin: 1.5em 0.1em 0 0.1em;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: rgb(1, 109, 176);
+}
+
+.temp-divider {
+  color: #000 !important;
+}
+
+.current-weather-icon {
+  width: auto;
+  height: 220px;
+  margin-left: 580px;
+  margin-top: -230px;
+}
+
+img.windy-icon,
+img.humidity-icon {
+  width: auto;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.humidity {
+  margin-left: -10px;
+}
+
+.humidity,
+.wind {
+  font-size: 1.2em;
+}
+
+/*----------- search bar */
+
+div.search-bar {
+  margin: 10px auto 0 0;
+  flex: 2;
+}
+
+input#weather-search-bar {
+  border: 0;
+  border-bottom: solid 1px;
+  padding: 0.6em 1.2em;
+  border: solid 1px rgb(148, 203, 255);
+  border-radius: 3em;
+  width: 350px;
+}
+
+/*
+input#weather-search-bar:hover,
+input#weather-search-bar:focus {
+  border: solid 1px rgb(148, 203, 255);
+  background-color: rgba(148, 203, 255, 0.13);
+  width: 360px;
+}
+*/
+
+button.search-button {
+  background-color: rgb(216, 235, 253);
+  border: 0;
+  border-radius: 3em;
+  padding: 0.45em 0.8em;
+  margin-left: -50px;
+  color: rgb(62, 66, 70);
+}
+
+button.search-button:hover {
+  background-color: rgb(148, 203, 255);
+  border: 0;
+  padding: 0.45em 0.8em;
+  margin-left: -50px;
+  color: #fff;
+}
+
+button#submit-current-location {
+  background-color: rgb(216, 235, 253);
+  border: 0;
+  border-radius: 3em;
+  margin-left: 10px;
+  padding: 0.45em 0.8em;
+  color: rgb(62, 66, 70);
+}
+
+button#submit-current-location:hover {
+  background-color: rgb(148, 203, 255);
+  border: 0;
+  margin-left: 10px;
+  padding: 0.45em 0.8em;
+  color: #fff;
+}
+
+/*--------------------------------------------------------------- week's forecast */
+
+div.weekly-forecast {
+  text-align: center;
+  margin-top: 100px;
+  padding: 3em;
+  max-width: 1300px;
+  background-color: rgba(148, 203, 255, 0.13);
+  border-radius: 1em;
+}
+
+.day-weather {
+  width: auto;
+  height: 120px;
+  margin-top: -100px;
+  margin-bottom: 20px;
+}
+
+.day-name {
+  font-weight: 500;
+  font-size: 1.5em;
+  margin-bottom: 3px;
+}
+
+.high-temp {
+  font-weight: 500;
+  font-size: 2em;
+  margin-bottom: 3px;
+}
+
+.low-temp {
+  font-weight: 500;
+  font-size: 1.5em;
+}
