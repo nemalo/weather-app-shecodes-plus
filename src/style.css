@@ -195,3 +195,20 @@ div.weekly-forecast {
   font-weight: 500;
   font-size: 1.5em;
 }
+
+/*--------------------------------------------------------------- link project to GitHub repository */
+#git-link {
+  display: block;
+  margin-top: 1em;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(148, 203, 255);
+}
+
+#git-link:hover {
+  display: block;
+  margin-top: 1em;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(1, 109, 176);
+}
