@@ -17,6 +17,14 @@ function formatDate(date) {
   let nowMinutes = now.getMinutes();
   let nowHours = now.getHours();
 
+  if (nowHours < 10) {
+    hours = "0" + hours;
+  }
+
+  if (nowMinutes < 10) {
+    minutes = "0" + minutes;
+  }
+
   let formattedDate = document.querySelector(".day-time");
   formattedDate.innerHTML = `${nowDay}, ${nowHours}:${nowMinutes}`;
   return formattedDate;
