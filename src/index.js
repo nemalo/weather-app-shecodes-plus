@@ -91,6 +91,8 @@ function showLocation(response) {
     response.data.main.humidity;
   document.querySelector(".current-weather-condition").innerHTML =
     `${response.data.weather[0].main}`.toLowerCase();
+
+    celsiusTemp = respone.data.main.temp;
 }
 
 /* search location*/
@@ -135,7 +137,7 @@ button.addEventListener("click", getCurrentPosition);
 /* END current location button*/
 
 /* fahrenheit to celsius*/
-
+/*
 function switchToFahrenheit(event) {
   event.preventDefault();
   let fahrenheit = document.querySelector(".temp-now");
@@ -153,8 +155,37 @@ function switchToCelsius(event) {
 }
 let celsiusChange = document.querySelector(".temp-celsius");
 celsiusChange.addEventListener("click", switchToCelsius);
+*/
+/* END fahrenheit to celsius*/
+
+
+// ------------------------------------------- tackling week 7
+
+/* fahrenheit to celsius*/
+
+
+
+function switchToFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheit = document.querySelector(".temp-now");
+  let fahrenheitNumber = celsiusTemp;
+  fahrenheit.innerHTML = Math.round((fahrenheitNumber * 9) / 5 + 32);
+}
+let fahrenheitChange = document.querySelector(".temp-fahrenheit");
+fahrenheitChange.addEventListener("click", switchToFahrenheit);
+
+function switchToCelsius(event) {
+  event.preventDefault();
+  let celsius = document.querySelector(".temp-now");
+  celsius.innerHTML = Math.round(celsiusTemp);
+}
+let celsiusChange = document.querySelector(".temp-celsius");
+celsiusChange.addEventListener("click", switchToCelsius);
+
+let celsiusTemp = null;
 
 /* END fahrenheit to celsius*/
+
 
 /* change icons*/
 let iconElement = document.querySelector("#current-weather-icon-id");
