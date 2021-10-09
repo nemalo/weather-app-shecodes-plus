@@ -156,4 +156,10 @@ celsiusChange.addEventListener("click", switchToCelsius);
 
 /* END fahrenheit to celsius*/
 
+/* change icons*/
+let iconElement = document.querySelector("#current-weather-icon-id");
+iconElement.setAttribute("src") = `http://openweathermap.org/img/wn/${respone.data.weather[0].icon}@2x.png`;
+iconElement.setAttribute("alt", respone.data.weather[0].description);
+/* END change icons*/
+
 searchLocation("Opatija");
