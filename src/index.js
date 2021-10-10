@@ -92,7 +92,14 @@ function showLocation(response) {
   document.querySelector(".current-weather-condition").innerHTML =
     `${response.data.weather[0].main}`.toLowerCase();
 
-    celsiusTemp = respone.data.main.temp;
+  celsiusTemp = response.data.main.temp;
+
+  let iconElement = document.querySelector("#current-weather-icon-id");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 /* search location*/
@@ -158,12 +165,9 @@ celsiusChange.addEventListener("click", switchToCelsius);
 */
 /* END fahrenheit to celsius*/
 
-
 // ------------------------------------------- tackling week 7
 
 /* fahrenheit to celsius*/
-
-
 
 function switchToFahrenheit(event) {
   event.preventDefault();
@@ -185,12 +189,5 @@ celsiusChange.addEventListener("click", switchToCelsius);
 let celsiusTemp = null;
 
 /* END fahrenheit to celsius*/
-
-
-/* change icons*/
-let iconElement = document.querySelector("#current-weather-icon-id");
-iconElement.setAttribute("src") = `http://openweathermap.org/img/wn/${respone.data.weather[0].icon}@2x.png`;
-iconElement.setAttribute("alt", respone.data.weather[0].description);
-/* END change icons*/
 
 searchLocation("Opatija");
