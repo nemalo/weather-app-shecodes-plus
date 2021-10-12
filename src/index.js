@@ -30,6 +30,38 @@ function formatDate(date) {
   return formattedDate;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weekly-weather-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col weekday">
+          <img
+            src="images/cloudy.png"
+            class="day-weather"
+            id="monday-weather-icon"
+          />
+          <p class="day-name">${day}</p>
+          <p class="high-temp">30°C</p>
+          <p class="low-temp">18°C</p>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 console.log(formatDate(now));
 
 /*
@@ -100,6 +132,8 @@ function showLocation(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  displayForecast();
 }
 
 /* search location*/
