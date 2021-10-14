@@ -31,6 +31,8 @@ function formatDate(date) {
 }
 
 function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#weekly-weather-forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -43,18 +45,18 @@ function displayForecast(response) {
     "Saturday",
     "Sunday",
   ];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       ` <div class="col weekday">
           <img
-            src="images/cloudy.png"
+            src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
             class="day-weather"
             id="monday-weather-icon"
           />
-          <p class="day-name">${day}</p>
-          <p class="high-temp">30°C</p>
-          <p class="low-temp">18°C</p>
+          <p class="day-name">${forecastDay.dt}</p>
+          <p class="high-temp">${forecastDay.temp.max}°C</p>
+          <p class="low-temp">${forecastDay.temp.min}°C</p>
         </div>`;
   });
 
