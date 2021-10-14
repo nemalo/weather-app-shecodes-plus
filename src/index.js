@@ -30,7 +30,7 @@ function formatDate(date) {
   return formattedDate;
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#weekly-weather-forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -111,6 +111,13 @@ celsiusChange.addEventListener("click", switchToCelsius);
 // ------------------------------------------- tackling week 5
 let apiKey = `57821c3b75b60c68ecd1a8d0dd1aa8d3`;
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = `57821c3b75b60c68ecd1a8d0dd1aa8d3`;
+  let apiUrlTwo = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlTwo).then(displayForecast);
+}
+
 function showLocation(response) {
   document.querySelector("#current-city-id").innerHTML = response.data.name;
   document.querySelector(".temp-now").innerHTML = Math.round(
@@ -133,7 +140,9 @@ function showLocation(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  displayForecast();
+  getForecast(response.data.coord);
+
+  displayForecast(response);
 }
 
 /* search location*/
