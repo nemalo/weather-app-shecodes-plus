@@ -18,16 +18,31 @@ function formatDate(date) {
   let nowHours = now.getHours();
 
   if (nowHours < 10) {
-    hours = "0" + hours;
+    nowHours = "0" + nowHours;
   }
 
   if (nowMinutes < 10) {
-    minutes = "0" + minutes;
+    nowMinutes = "0" + nowMinutes;
   }
 
   let formattedDate = document.querySelector(".day-time");
   formattedDate.innerHTML = `${nowDay}, ${nowHours}:${nowMinutes}`;
   return formattedDate;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
 }
 
 function displayForecast(response) {
@@ -45,19 +60,23 @@ function displayForecast(response) {
     "Saturday",
     "Sunday",
   ];
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col weekday">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col weekday">
           <img
-            src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
+            src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png"
             class="day-weather"
             id="monday-weather-icon"
           />
-          <p class="day-name">${forecastDay.dt}</p>
-          <p class="high-temp">${forecastDay.temp.max}°C</p>
-          <p class="low-temp">${forecastDay.temp.min}°C</p>
+          <p class="day-name">${formatDay(forecastDay.dt)}</p>
+          <p class="high-temp">${Math.round(forecastDay.temp.max)}°C</p>
+          <p class="low-temp">${Math.round(forecastDay.temp.min)}°C</p>
         </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -143,8 +162,6 @@ function showLocation(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
-
-  displayForecast(response);
 }
 
 /* search location*/
