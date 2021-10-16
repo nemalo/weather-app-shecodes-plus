@@ -64,11 +64,9 @@ function displayForecast(response) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        ` <div class="col weekday">
+        `<div class="col weekday">
           <img
-            src="http://openweathermap.org/img/wn/${
-              forecastDay.weather[0].icon
-            }@2x.png"
+            src="images/${forecastDay.weather[0].icon}.png"
             class="day-weather"
             id="monday-weather-icon"
           />
@@ -108,10 +106,8 @@ function showLocation(response) {
   celsiusTemp = response.data.main.temp;
 
   let iconElement = document.querySelector("#current-weather-icon-id");
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+  let iconId = response.data.weather[0].icon;
+  iconElement.setAttribute("src", `images/${iconId}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
